@@ -62,7 +62,7 @@ class Message(object):
 
         checksum = MESSAGE_TX_SYNC
         for byte in data:
-            checksum = (checksum ^ ord(byte)) % 0xFF
+            checksum = checksum ^ ord(byte)
 
         return checksum
 
