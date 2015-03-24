@@ -148,6 +148,8 @@ class Message(object):
             msg = CapabilitiesMessage()
         elif self.type_ == MESSAGE_SERIAL_NUMBER:
             msg = SerialNumberMessage()
+        elif self.type_ == MESSAGE_STARTUP:
+            msg = StartupMessage()
         else:
             raise MessageError('Could not find message handler ' \
                                '(unknown message type).')
@@ -494,6 +496,9 @@ class CapabilitiesMessage(Message):
             self.payload.append('\x00')
         self.payload[4] = chr(num)
 
+class StartupMessage(Message):
+    def __init__(self):
+        Message.__init__(self, type_=MESSAGE_STARTUP)
 
 class SerialNumberMessage(Message):
     def __init__(self, serial='\x00' * 4):
