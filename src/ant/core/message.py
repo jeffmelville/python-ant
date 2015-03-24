@@ -152,7 +152,7 @@ class Message(object):
             msg = StartupMessage()
         else:
             raise MessageError('Could not find message handler ' \
-                               '(unknown message type).')
+                               '(unknown message type=0x%X).' % self.type_)
 
         msg.setPayload(self.getPayload())
         return msg
