@@ -102,7 +102,7 @@ class Message(object):
         return self.getSize()
 
     def getHandler(self, raw=None):
-        if raw:
+        if raw is not None:
             self.decode(raw)
 
         msg = None

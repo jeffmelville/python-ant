@@ -42,7 +42,7 @@ from ant.core.exceptions import MessageError
 def ProcessBuffer(buffer_):
     messages = []
 
-    while True:
+    while buffer_:
         hf = Message()
         try:
             msg = hf.getHandler(buffer_)
